@@ -1,0 +1,43 @@
+{
+  "name": "@dloizides/live-query",
+  "version": "1.0.0",
+  "description": "React hook for live data: initial fetch, pushed updates over a SignalR WebSocket topic, polling fallback when the socket is down.",
+  "keywords": ["react", "hooks", "signalr", "websocket", "realtime", "live-query", "polling"],
+  "author": "dloizides",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/openmindednewby/live-query.git" },
+  "homepage": "https://github.com/openmindednewby/live-query#readme",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
+      "import": { "types": "./dist/index.d.mts", "default": "./dist/index.mjs" }
+    }
+  },
+  "files": ["dist", "README.md"],
+  "sideEffects": false,
+  "engines": { "node": ">=18.0.0" },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm run build && npm run test"
+  },
+  "peerDependencies": {
+    "@microsoft/signalr": ">=8.0.0",
+    "react": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@microsoft/signalr": "^10.0.0",
+    "@testing-library/react": "^16.1.0",
+    "@types/react": "^18.3.0",
+    "jsdom": "^25.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tsup": "^8.0.0",
+    "typescript": "^5.6.0",
+    "vitest": "^3.2.0"
+  }
+}
